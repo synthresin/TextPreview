@@ -1,5 +1,7 @@
 package com.example.synthresin.textpreview;
 
+import android.graphics.Typeface;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.res.Resources;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initVariables(); // 모든 뷰들을 인스턴스 변수에 박는다.
+        initFont();
         initListeners();
         refreshViews();
 
@@ -101,6 +104,21 @@ public class MainActivity extends AppCompatActivity {
 
         mCJKMultiple = (TextView) findViewById(R.id.CJKMultiple);
         mCJKMultipleHeight = (TextView) findViewById(R.id.CJKMultipleHeight);
+    }
+
+    void initFont() {
+        Typeface roboto = ResourcesCompat.getFont(this, R.font.roboto_regular);
+        Typeface noto = ResourcesCompat.getFont(this, R.font.noto_regular);
+
+//        mLatinSingle.setTypeface(roboto);
+//        mLatinMultiple.setTypeface(roboto);
+//        mCJKSingle.setTypeface(noto);
+//        mCJKMultiple.setTypeface(noto);
+
+        mLatinSingle.setTypeface(Typeface.DEFAULT);
+        mLatinMultiple.setTypeface(Typeface.DEFAULT);
+        mCJKSingle.setTypeface(Typeface.DEFAULT);
+        mCJKMultiple.setTypeface(Typeface.DEFAULT);
     }
 
     void initListeners() {

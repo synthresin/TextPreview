@@ -91,7 +91,7 @@
 
     <TextView
         android:id="@+id/latinSingleHeight"
-        android:layout_width="80dp"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="TextView"
@@ -116,7 +116,7 @@
 
     <TextView
         android:id="@+id/latinMultipleHeight"
-        android:layout_width="80dp"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="TextView"
@@ -141,7 +141,7 @@
 
     <TextView
         android:id="@+id/CJKSingleHeight"
-        android:layout_width="80dp"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="TextView"
@@ -166,7 +166,7 @@
 
     <TextView
         android:id="@+id/CJKMultipleHeight"
-        android:layout_width="80dp"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="TextView"
