@@ -33,9 +33,8 @@
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
-        android:max="24"
-        android:min="11"
-        android:progress="14"
+        android:max="13"
+        android:progress="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,9 +67,8 @@
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
-        android:max="10"
-        android:min="-10"
-        android:progress="0"
+        android:max="20"
+        android:progress="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,5 +98,80 @@
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/latinSingle" />
+
+    <TextView
+        android:id="@+id/latinMultiple"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis lobortis erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis lobortis erat."
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:maxLines="2"
+        app:layout_constraintEnd_toStartOf="@+id/latinMultipleHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latinSingle" />
+
+    <TextView
+        android:id="@+id/latinMultipleHeight"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/latinMultiple" />
+
+    <TextView
+        android:id="@+id/CJKSingle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="때에, 방황하여도, 안고, 반짝이는 있음으로써 것은 튼튼하며, 것은 것이다. 거선의 열락의 역사를 것이 인생의 황금시대의 청춘을 것이다. 열락의 방황하여도, 끝에 보이는 말이다. 싸인 그들은 붙잡아 끓는 수 청춘의 뼈 이것이다. 무엇을 미인을 커다란 이성은 것이다. 그림자는 얼음에 수 방황하였으며, 할지니, 때문이다. 황금시대를 내는 이성은 들어 간에 창공에 피다. 어디 더운지라 같이, 시들어 작고 발휘하기 생명을 피는 들어 교향악이다. 끓는 새 수 사는가 그들의 스며들어 내는 봄바람이다. 피고 긴지라 돋고, 피다. 행복스럽고 장식하는 피는 그들은 아름다우냐?"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:singleLine="true"
+        app:layout_constraintEnd_toStartOf="@+id/CJKSingleHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latinMultiple" />
+
+    <TextView
+        android:id="@+id/CJKSingleHeight"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/CJKSingle" />
+
+    <TextView
+        android:id="@+id/CJKMultiple"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="때에, 방황하여도, 안고, 반짝이는 있음으로써 것은 튼튼하며, 것은 것이다. 거선의 열락의 역사를 것이 인생의 황금시대의 청춘을 것이다. 열락의 방황하여도, 끝에 보이는 말이다. 싸인 그들은 붙잡아 끓는 수 청춘의 뼈 이것이다. 무엇을 미인을 커다란 이성은 것이다. 그림자는 얼음에 수 방황하였으며, 할지니, 때문이다. 황금시대를 내는 이성은 들어 간에 창공에 피다. 어디 더운지라 같이, 시들어 작고 발휘하기 생명을 피는 들어 교향악이다. 끓는 새 수 사는가 그들의 스며들어 내는 봄바람이다. 피고 긴지라 돋고, 피다. 행복스럽고 장식하는 피는 그들은 아름다우냐?"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:maxLines="2"
+        app:layout_constraintEnd_toStartOf="@+id/CJKMultipleHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CJKSingle" />
+
+    <TextView
+        android:id="@+id/CJKMultipleHeight"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/CJKMultiple" />
 
 </android.support.constraint.ConstraintLayout>

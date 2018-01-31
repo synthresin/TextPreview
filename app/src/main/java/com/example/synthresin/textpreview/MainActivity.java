@@ -5,30 +5,67 @@ import android.os.Bundle;
 import android.content.res.Resources;
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private float mFontSize;
+    private float mLineSpacingExtra;
+
     private SeekBar mFontSizeBar;
     private SeekBar mLineSpacingBar;
+    private TextView mFontSizeValueLabel;
+    private TextView mLineSpacingValueLabel;
+
     private TextView mLatinSingle;
     private TextView mLatinSingleHeight;
+
+    private TextView mLatinMultiple;
+    private TextView mLatinMultipleHeight;
+
+    private TextView mCJKSingle;
+    private TextView mCJKSingleHeight;
+
+    private TextView mCJKMultiple;
+    private TextView mCJKMultipleHeight;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initViews();
+        initVariables(); // 모든 뷰들을 인스턴스 변수에 박는다.
+        initListeners();
+        refreshViews();
 
-        SeekBar fontSizeBar = (SeekBar) findViewById(R.id.fontSizeSeekBar);
-        fontSizeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+        mFontSizeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int barValue, boolean isFromUser) {
-                mLatinSingle.setTextSize((float) barValue);
-                mLatinSingleHeight.setText(String.format("%fdp", convertPixelsToDp((float) mLatinSingle.getMeasuredHeight(), getApplicationContext())));
+                mFontSize = fontSizeProgressToVal(barValue);
+                refreshViews();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        mLineSpacingBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int barValue, boolean isFromUser) {
+                mLineSpacingExtra = lineSpacingProgressToVal(barValue);
+                refreshViews();
             }
 
             @Override
@@ -43,20 +80,82 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    void initViews() {
+    void initVariables() {
         mFontSizeBar = (SeekBar) findViewById(R.id.fontSizeSeekBar);
         mLineSpacingBar = (SeekBar) findViewById(R.id.lineSpacingSeekBar);
+
+        mFontSize = fontSizeProgressToVal(mFontSizeBar.getProgress());
+        mLineSpacingExtra = lineSpacingProgressToVal(mLineSpacingBar.getProgress());
+
+        mFontSizeValueLabel = findViewById(R.id.fontSizeValue);
+        mLineSpacingValueLabel = findViewById(R.id.lineSpacingValue);
 
         mLatinSingle = (TextView) findViewById(R.id.latinSingle);
         mLatinSingleHeight = (TextView) findViewById(R.id.latinSingleHeight);
 
-        int fontSize = mFontSizeBar.getProgress();
-        int lineSpacingExtra = mLineSpacingBar.getProgress();
+        mLatinMultiple = (TextView) findViewById(R.id.latinMultiple);
+        mLatinMultipleHeight = (TextView) findViewById(R.id.latinMultipleHeight);
 
-        mLatinSingle.setTextSize((float) fontSize);
-        mLatinSingle.setLineSpacing((float) lineSpacingExtra, 1.0f);
-        mLatinSingleHeight.setText(String.format("%fdp", convertPixelsToDp((float) mLatinSingle.getMeasuredHeight(), getApplicationContext())));
+        mCJKSingle = (TextView) findViewById(R.id.CJKSingle);
+        mCJKSingleHeight = (TextView) findViewById(R.id.CJKSingleHeight);
 
+        mCJKMultiple = (TextView) findViewById(R.id.CJKMultiple);
+        mCJKMultipleHeight = (TextView) findViewById(R.id.CJKMultipleHeight);
+    }
+
+    void initListeners() {
+        mLatinSingle.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                mLatinSingleHeight.setText(String.format("%fdp", convertPixelsToDp((float) (bottom - top), v.getContext())));
+            }
+        });
+
+        mLatinMultiple.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                mLatinMultipleHeight.setText(String.format("%fdp", convertPixelsToDp((float) (bottom - top), v.getContext())));
+            }
+        });
+
+        mCJKSingle.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                mCJKSingleHeight.setText(String.format("%fdp", convertPixelsToDp((float) (bottom - top), v.getContext())));
+            }
+        });
+
+        mCJKMultiple.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                mCJKMultipleHeight.setText(String.format("%fdp", convertPixelsToDp((float) (bottom - top), v.getContext())));
+            }
+        });
+    }
+
+    void refreshViews() {
+        mFontSizeValueLabel.setText(String.format("%fdp", mFontSize));
+        mLineSpacingValueLabel.setText(String.format("%fdp", mLineSpacingExtra));
+
+        mLatinSingle.setTextSize(mFontSize);
+        mLatinSingle.setLineSpacing(mLineSpacingExtra, 1.0f);
+
+        mLatinMultiple.setTextSize(mFontSize);
+        mLatinMultiple.setLineSpacing(mLineSpacingExtra, 1.0f);
+
+        mCJKSingle.setTextSize(mFontSize);
+        mCJKSingle.setLineSpacing(mLineSpacingExtra, 1.0f);
+
+        mCJKMultiple.setTextSize(mFontSize);
+        mCJKMultiple.setLineSpacing(mLineSpacingExtra, 1.0f);
+    }
+
+    float fontSizeProgressToVal(int progress) {
+        return (float) progress + 11.0f;
+    }
+
+    float lineSpacingProgressToVal(int progress) {
+        return (float) progress - 10.0f;
     }
 
     public static float convertPixelsToDp(float px, Context context){
