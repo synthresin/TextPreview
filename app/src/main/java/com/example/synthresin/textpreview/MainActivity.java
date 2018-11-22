@@ -112,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        mLatinSingle.setTypeface(roboto);
 //        mLatinMultiple.setTypeface(roboto);
-//        mCJKSingle.setTypeface(noto);
-//        mCJKMultiple.setTypeface(noto);
+//        mCJKSingle.setTypeface(roboto);
+//        mCJKMultiple.setTypeface(roboto);
 
         mLatinSingle.setTypeface(Typeface.DEFAULT);
         mLatinMultiple.setTypeface(Typeface.DEFAULT);
