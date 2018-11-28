@@ -112,13 +112,13 @@ public class MainActivity extends AppCompatActivity {
 
 //        mLatinSingle.setTypeface(roboto);
 //        mLatinMultiple.setTypeface(roboto);
-//        mCJKSingle.setTypeface(roboto);
-//        mCJKMultiple.setTypeface(roboto);
-
-        mLatinSingle.setTypeface(Typeface.DEFAULT);
-        mLatinMultiple.setTypeface(Typeface.DEFAULT);
-        mCJKSingle.setTypeface(Typeface.DEFAULT);
-        mCJKMultiple.setTypeface(Typeface.DEFAULT);
+//        mCJKSingle.setTypeface(noto);
+//        mCJKMultiple.setTypeface(noto);
+//
+//        mLatinSingle.setTypeface(Typeface.DEFAULT);
+//        mLatinMultiple.setTypeface(Typeface.DEFAULT);
+//        mCJKSingle.setTypeface(Typeface.DEFAULT);
+//        mCJKMultiple.setTypeface(Typeface.DEFAULT);
     }
 
     void initListeners() {
